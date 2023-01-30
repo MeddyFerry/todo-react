@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-function FormTodo() {
+function FormTodo({ onAddTask }) {
+  const [task, setTask] = useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onAddTask(task);
+    setTask("");
+  };
   return (
-    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden ">
-      <div className="w-full p-6 m-auto bg-slate-800 rounded-md shadow-xl shadow-gray-50/40 ring-2 ring-indigo-400 lg:max-w-xl">
+    <div className=" pt-9 pb-9 overflow-hidden ">
+      <div className="p-6 m-auto bg-slate-800 rounded-md shadow-xl shadow-gray-50/40 ring-2 ring-indigo-400 lg:max-w-xl">
         <h1 className=" text-center tpt-6 bg-clip-text text-transparent bg-gradient-to-b from-gray-100 to-purple-400 font-bold text-lg ">
           TODO
         </h1>
-        <form className="mt-6">
+        <form onSubmit={handleSubmit} className="mt-6">
           <div className="mb-2">
             <label>
               <input
                 type="text"
+                value={task}
+                onChange={(event) => setTask(event.target.value)}
+                placeholder="Ajouter une tâche"
                 name="name"
                 className="
 
@@ -25,7 +34,6 @@ function FormTodo() {
             focus:ring-indigo-200
             focus:ring-opacity-50
           "
-                placeholder="Faire le ménage..."
               />
             </label>
           </div>
@@ -45,10 +53,9 @@ function FormTodo() {
             hover:bg-indigo-800
           "
             >
-              submit
+              ajouter
             </button>
           </div>
-          <div></div>
         </form>
       </div>
     </div>
