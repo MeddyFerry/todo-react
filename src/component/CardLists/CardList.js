@@ -1,5 +1,5 @@
 import React from "react";
-import TaskCard from "../Tascard/Tascard";
+import TaskCard from "../TaskCard/Tascard";
 
 const CardLists = ({ tasks, onDeleteTask }) => {
   return (

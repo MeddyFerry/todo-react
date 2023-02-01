@@ -23,7 +23,6 @@ function FormTodo({ onAddTask }) {
                 placeholder="Ajouter une tâche"
                 name="name"
                 className="
-
             w-full
             block px-16 py-2 mt-2
             border-gray-300
